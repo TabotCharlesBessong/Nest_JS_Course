@@ -33,7 +33,9 @@ This will create a new NestJS project in a directory called `my-project`. You ca
 
 ```
 cd my-project
-npm run start
+npm run start or
+pnpm start:dev or
+yarn start:dev
 ```
 
 This will start the development server at `http://localhost:3000`, and you can begin building your NestJS application. You can also use pnpm or yarn to run the same commands, depending on your preferred package manager.
