@@ -20,12 +20,12 @@ export class MessageRepository {
   }
 
   async create(message:string){
-    const contents = await readFileAsync('messages.json','utf8')
-    const messages = JSON.parse(contents)
+    const content = await readFileAsync('messages.json','utf8')
+    const messages = JSON.parse(content)
 
     const id = Math.floor(Math.random() * 999)
 
-    messages[id] = {id,contents}
+    messages[id] = {id,content}
 
     await writeFileAsync('messages.json',JSON.stringify(messages))
   }
