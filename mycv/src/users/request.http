@@ -6,3 +6,13 @@ Content-Type: application/json
   "email":"hello@gmail.com",
   "password":"hello12345"
 }
+
+### finding a particular user with a given ID
+
+GET  http://localhost:3000/auth/2
+
+### 
+Get http://localhost:3000/auth/?email=hello@gmail.com
+
+### Dele te user with a given id
+DELETE  http://localhost:3000/auth/1
