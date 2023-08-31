@@ -17,9 +17,9 @@ GET http://localhost:3000/auth?email=hello@fmail.com
 DELETE http:a//localhost:3000/auth/2
 
 ### Update a user
-PATCH http://localhost:3000/auth/1
+PATCH http://localhost:3000/auth/3
 content-type: application/json
 
 {
-  "password": "aaaaa"
+  "password": "hellno"
 }
