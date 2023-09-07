@@ -17,7 +17,7 @@ describe('Authentication System', () => {
   });
 
   it('handles a signup request', () => {
-    const email = 'asdjksde@sgh.com';
+    const email = 'ajerbaijan@sgh.com';
     return request(app.getHttpServer())
       .post('/auth/signup')
       .send({
