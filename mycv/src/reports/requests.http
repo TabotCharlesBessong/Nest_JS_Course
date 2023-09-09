@@ -3,11 +3,11 @@ POST http://localhost:3000/reports
 Content-Type:  application/json
 
 {
-  "make":"Honda",
-  "model":"Hakai",
-  "year":2001,
+  "make":"Hyudai",
+  "model":"Kashkai",
+  "year":2021,
   "mileage":12780,
   "lng":14.9329,
-  "lat":9.2381,
-  "price":12500
+  "lat":19.2381,
+  "price":37500
 }
