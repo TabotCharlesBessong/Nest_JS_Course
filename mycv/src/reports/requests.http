@@ -6,8 +6,16 @@ Content-Type:  application/json
   "make":"Hyudai",
   "model":"Kashkai",
   "year":2021,
-  "mileage":12780,
+  "mileage":12080,
   "lng":14.9329,
   "lat":19.2381,
   "price":37500
+}
+
+### approvr an existing request
+PATCH  http://localhost:3000/reports/5
+Content-Type: application/json
+
+{
+  "approved":true
 }
