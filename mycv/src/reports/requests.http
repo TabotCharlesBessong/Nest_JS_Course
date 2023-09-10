@@ -21,4 +21,4 @@ Content-Type: application/json
 }
 
 ### get an estimate for am existing vehicle
-GET http://localhost:3000/reports?make=Hyudai&model=Kashkai&year=2013&lng=14.9329&lat=19.2381&price=37500&mileage=12000
+GET http://localhost:3000/reports?make=Hyudai&model=Kashkai&year=2021&lng=14.9329&lat=19.2381&price=37500&mileage=12080

@@ -1,13 +1,12 @@
-
-import { Transform } from 'class-transformer';
 import {
-  IsLatitude,
-  IsLongitude,
-  IsNumber,
   IsString,
-  Max,
+  IsNumber,
   Min,
+  Max,
+  IsLongitude,
+  IsLatitude,
 } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 export class GetEstimateDto {
   @IsString()
@@ -19,7 +18,7 @@ export class GetEstimateDto {
   @Transform(({ value }) => parseInt(value))
   @IsNumber()
   @Min(1930)
-  @Max(2030)
+  @Max(2050)
   year: number;
 
   @Transform(({ value }) => parseInt(value))
