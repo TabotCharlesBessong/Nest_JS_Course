@@ -11,6 +11,8 @@ const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const student_service_1 = require("./student/student.service");
+const student_controller_1 = require("./student/student.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -19,8 +21,8 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             mongoose_1.MongooseModule.forRoot('mongodb+srv://tabotcharles:charles1974@cluster0.vjfxkls.mongodb.net/student_crud'),
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        controllers: [app_controller_1.AppController, student_controller_1.StudentController],
+        providers: [app_service_1.AppService, student_service_1.StudentService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

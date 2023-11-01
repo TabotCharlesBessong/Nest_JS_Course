@@ -1,16 +1,21 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { CreateStudentDto } from 'src/dto/create-student.dto';
-import { IStudent } from 'src/interface/student.interface';
-import { Model } from 'mongoose';
-import { UpdateStudentDto } from 'src/dto/update-student.dto';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { CreateStudentDto } from "src/dto/create-student.dto";
+import { UpdateStudentDto } from "src/dto/update-student.dto";
+import { IStudent } from "src/interface/student.interface";
+
 @Injectable()
 export class StudentService {
-  constructor(@InjectModel('Student') private studentModel: Model<IStudent>) {}
+  constructor(
+    @InjectModel('Student')
+    private studentModel: Model<IStudent>,
+  ) {}
   async createStudent(createStudentDto: CreateStudentDto): Promise<IStudent> {
     const newStudent = await new this.studentModel(createStudentDto);
     return newStudent.save();
   }
+
   async updateStudent(
     studentId: string,
     updateStudentDto: UpdateStudentDto,
@@ -25,6 +30,7 @@ export class StudentService {
     }
     return existingStudent;
   }
+
   async getAllStudents(): Promise<IStudent[]> {
     const studentData = await this.studentModel.find();
     if (!studentData || studentData.length == 0) {
@@ -32,6 +38,7 @@ export class StudentService {
     }
     return studentData;
   }
+
   async getStudent(studentId: string): Promise<IStudent> {
     const existingStudent = await this.studentModel.findById(studentId).exec();
     if (!existingStudent) {
