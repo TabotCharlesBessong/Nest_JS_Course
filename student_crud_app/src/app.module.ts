@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      '',
+      'mongodb+srv://tabotcharles:charles1974@cluster0.vjfxkls.mongodb.net/student_crud',
     ),
   ],
   controllers: [AppController],
