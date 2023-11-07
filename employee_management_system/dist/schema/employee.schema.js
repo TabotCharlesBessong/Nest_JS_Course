@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], Employee.prototype, "Designation", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ required: true, unique: true }),
     __metadata("design:type", String)
 ], Employee.prototype, "Email", void 0);
 __decorate([

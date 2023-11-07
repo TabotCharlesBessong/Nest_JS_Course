@@ -16,7 +16,7 @@ export class Employee {
   @Prop()
   Designation: string;
 
-  @Prop()
+  @Prop({ required: true, unique: true })
   Email: string;
 
   @Prop()
