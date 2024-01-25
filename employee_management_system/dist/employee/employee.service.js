@@ -35,7 +35,7 @@ let EmployeeService = class EmployeeService {
         return this.employeeModel.findByIdAndUpdate(id, updateEmployeeDto);
     }
     async remove(id) {
-        return this.employeeModel.findByIdAndRemove(id);
+        return this.employeeModel.findByIdAndDelete(id);
     }
 };
 exports.EmployeeService = EmployeeService;

@@ -35,6 +35,6 @@ export class EmployeeService {
   }
 
   async remove(id: string) {
-    return this.employeeModel.findByIdAndRemove(id);
+    return this.employeeModel.findByIdAndDelete(id);
   }
 }
