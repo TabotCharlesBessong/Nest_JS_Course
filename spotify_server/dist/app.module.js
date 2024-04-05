@@ -35,7 +35,7 @@ exports.AppModule = AppModule = __decorate([
                 host: 'localhost',
                 port: 5432,
                 username: 'postgres',
-                password: '',
+                password: 'postgreSQL#123',
                 entities: [song_entity_1.Song, artist_entity_1.Artist, user_entity_1.User, playlist_entity_1.Playlist],
                 synchronize: true,
             }),
