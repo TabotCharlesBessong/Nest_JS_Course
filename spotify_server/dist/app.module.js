@@ -11,7 +11,13 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const songs_module_1 = require("./songs/songs.module");
+const logger_middleware_1 = require("./common/middleware/logger/logger.middleware");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer
+            .apply(logger_middleware_1.LoggerMiddleware)
+            .forRoutes({ path: 'songs', method: common_1.RequestMethod.POST });
+    }
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
