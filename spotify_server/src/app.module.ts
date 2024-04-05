@@ -23,7 +23,7 @@ import { Playlist } from './playlist/playlist.entity';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'postgreSQL#123',
+      password: '',
       entities: [Song, Artist, User, Playlist],
       synchronize: true,
     }),
