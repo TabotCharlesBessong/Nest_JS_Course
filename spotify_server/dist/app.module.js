@@ -12,6 +12,12 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const songs_module_1 = require("./songs/songs.module");
 const logger_middleware_1 = require("./common/middleware/logger/logger.middleware");
+const DevConfigService_1 = require("./common/providers/DevConfigService");
+const typeorm_1 = require("@nestjs/typeorm");
+const song_entity_1 = require("./songs/song.entity");
+const artist_entity_1 = require("./artists/artist.entity");
+const user_entity_1 = require("./user/user.entity");
+const playlist_entity_1 = require("./playlist/playlist.entity");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -22,9 +28,27 @@ let AppModule = class AppModule {
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [songs_module_1.SongsModule],
+        imports: [
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'postgres',
+                database: 'spotify-clone',
+                host: 'localhost',
+                port: 5432,
+                username: 'postgres',
+                password: 'postgreSQL#123',
+                entities: [song_entity_1.Song, artist_entity_1.Artist, user_entity_1.User, playlist_entity_1.Playlist],
+                synchronize: true,
+            }),
+            songs_module_1.SongsModule,
+        ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [
+            app_service_1.AppService,
+            {
+                provide: DevConfigService_1.DevConfigService,
+                useClass: DevConfigService_1.DevConfigService,
+            },
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

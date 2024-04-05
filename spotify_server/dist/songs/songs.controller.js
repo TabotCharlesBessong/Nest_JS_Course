@@ -17,8 +17,10 @@ const common_1 = require("@nestjs/common");
 const songs_service_1 = require("./songs.service");
 const create_song_dto_1 = require("./dto/create-song-dto");
 let SongsController = class SongsController {
-    constructor(songsService) {
+    constructor(songsService, connection) {
         this.songsService = songsService;
+        this.connection = connection;
+        console.log(this.connection);
     }
     create(createSongDTO) {
         return this.songsService.create(createSongDTO);
@@ -27,10 +29,10 @@ let SongsController = class SongsController {
         return this.songsService.findAll();
     }
     findOne() {
-        return "I have that particular song now";
+        return 'I have that particular song now';
     }
     update() {
-        return "Let update this song";
+        return 'Let update this song';
     }
     delete() {
         return "we don't need this song anymore";
@@ -57,19 +59,20 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], SongsController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Put)(":id"),
+    (0, common_1.Put)(':id'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], SongsController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
+    (0, common_1.Delete)(':id'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], SongsController.prototype, "delete", null);
 exports.SongsController = SongsController = __decorate([
     (0, common_1.Controller)('songs'),
-    __metadata("design:paramtypes", [songs_service_1.SongsService])
+    __param(1, (0, common_1.Inject)('CONNECTION')),
+    __metadata("design:paramtypes", [songs_service_1.SongsService, Object])
 ], SongsController);
 //# sourceMappingURL=songs.controller.js.map
