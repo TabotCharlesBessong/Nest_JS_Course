@@ -18,6 +18,7 @@ const song_entity_1 = require("./songs/song.entity");
 const artist_entity_1 = require("./artists/artist.entity");
 const user_entity_1 = require("./user/user.entity");
 const playlist_entity_1 = require("./playlist/playlist.entity");
+const playlist_module_1 = require("./playlist/playlist.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -40,6 +41,7 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: true,
             }),
             songs_module_1.SongsModule,
+            playlist_module_1.PlayListModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [

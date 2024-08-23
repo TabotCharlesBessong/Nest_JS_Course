@@ -12,14 +12,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PlayListsService = void 0;
+exports.PlayListService = void 0;
+const song_entity_1 = require("../songs/song.entity");
 const typeorm_1 = require("@nestjs/typeorm");
 const playlist_entity_1 = require("./playlist.entity");
-const song_entity_1 = require("../songs/song.entity");
 const common_1 = require("@nestjs/common");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("../user/user.entity");
-let PlayListsService = class PlayListsService {
+let PlayListService = class PlayListService {
     constructor(playListRepo, songsRepo, userRepo) {
         this.playListRepo = playListRepo;
         this.songsRepo = songsRepo;
@@ -28,15 +28,15 @@ let PlayListsService = class PlayListsService {
     async create(playListDTO) {
         const playList = new playlist_entity_1.Playlist();
         playList.name = playListDTO.name;
-        const songs = await this.songsRepo.findByIds(playListDTO.songs);
+        const songs = await this.songsRepo.findBy({ id: (0, typeorm_2.In)([playListDTO.songs]) });
         playList.songs = songs;
         const user = await this.userRepo.findOneBy({ id: playListDTO.user });
         playList.user = user;
         return this.playListRepo.save(playList);
     }
 };
-exports.PlayListsService = PlayListsService;
-exports.PlayListsService = PlayListsService = __decorate([
+exports.PlayListService = PlayListService;
+exports.PlayListService = PlayListService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(playlist_entity_1.Playlist)),
     __param(1, (0, typeorm_1.InjectRepository)(song_entity_1.Song)),
@@ -44,5 +44,5 @@ exports.PlayListsService = PlayListsService = __decorate([
     __metadata("design:paramtypes", [typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])
-], PlayListsService);
+], PlayListService);
 //# sourceMappingURL=playlist.service.js.map
